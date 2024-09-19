@@ -1,0 +1,29 @@
+{
+  "name": "anny/laravel-scaleway-tem",
+  "description": "A Laravel package to extend mail with Scaleway transactional email",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Adriaan Wind",
+      "email": "adriaan.wind@anny.co"
+    }
+  ],
+  "require": {
+    "php": "^8.0",
+    "illuminate/support": "^9.0|^10.0|^11.0",
+    "symfony/scaleway-mailer": "^6.4|^7.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Anny\\LaravelScaleWayTem\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Anny\\LaravelScalewayTem\\LaravelScalewayTemServiceProvider"
+      ]
+    }
+  }
+}
