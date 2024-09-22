@@ -18,18 +18,13 @@ class LaravelScalewayTemServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $mailers = Config::get('mail.mailers');
-        $mailers['scaleway'] = [
-            'transport' => 'scaleway',
-        ];
-        Config::set(['mail.mailers' => $mailers]);
 
-        Mail::extend('scaleway', function () {
+        Mail::extend('scaleway', function (array $config) {
             return (new ScalewayTransportFactory())->create(
                 new Dsn('scaleway+api', 'default',
-                    Config::get('services.scaleway.project_id'),
-                    Config::get('services.scaleway.api_key'),
-                options: ['region' => Config::get('services.scaleway.region')]
+                    $config['project_id'] ?? Config::get('services.scaleway.project_id'),
+                    $config['api_key'] ?? Config::get('services.scaleway.api_key'),
+                options: ['region' => $config['options']['region'] ?? Config::get('services.scaleway.region')]
                 )
             );
         });
