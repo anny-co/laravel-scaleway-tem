@@ -16,7 +16,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Anny\\LaravelScaleWayTem\\": "src/"
+      "Anny\\LaravelScalewayTem\\": "src/"
     }
   },
   "extra": {
